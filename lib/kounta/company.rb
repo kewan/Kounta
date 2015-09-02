@@ -41,6 +41,8 @@ module Kounta
     has_many :shifts, Kounta::Shift, {:company_id => :id}, Proc.new { |klass, date| {companies: klass.id, shifts: Kounta.format_date(date)} }
     has_many :shifts_since, Kounta::Shift, {:company_id => :id}, Proc.new { |klass, date| {companies: klass.id, shifts: nil, since: Kounta.format_date(date)} }
 
+    has_many_in_time_range :orders_in_time_range, Kounta::Order, {:company_id => :id}, Proc.new { |klass| {companies: klass.id, orders: nil} }
+
     def initialize(client, hash = {})
       @client = client
 
