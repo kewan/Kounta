@@ -10,19 +10,19 @@ require 'kounta'
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 RSpec.configure do |config|
-	config.include Helpers
+  config.include Helpers
 
-	config.before(:each) do
-		
-		stub_endpoints
+  config.before(:each) do
+    
+    stub_endpoints
 
-		Kounta.configure do |config|
-			config.client_id = "1234"
-			config.client_secret = "5678"
-			config.client_token = "abcd"
-			config.client_refresh_token = "efgh"
-		end
+    Kounta.configure do |config|
+      config.client_id = "1234"
+      config.client_secret = "5678"
+      config.client_token = "abcd"
+      config.client_refresh_token = "efgh"
+    end
 
-	end
+  end
 
 end

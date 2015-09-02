@@ -1,9 +1,9 @@
 module Kounta
 
-	class Break < Kounta::Resource
-		property :started_at
-		property :finished_at
-	end
+  class Break < Kounta::Resource
+    property :started_at
+    property :finished_at
+  end
 
 end
 
