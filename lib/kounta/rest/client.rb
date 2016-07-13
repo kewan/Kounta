@@ -5,11 +5,11 @@ require 'faraday_middleware'
 module Kounta
     module REST
         class Client
-      def initialize(options)
+      def initialize(options={})
         @redirect_uri         = options[:redirect_uri]
-        @consumer             = options[:consumer]
-        @access_token         = options[:access_token]
-        @refresh_token        = options[:refresh_token]
+        @consumer             = options[:consumer] || {key: Kounta.client_id, secret:Kounta.client_secret}
+        @access_token         = options[:access_token] || Kounta.client_token
+        @refresh_token        = options[:refresh_token] || Kounta.client_refresh_token
         @client               = OAuth2::Client.new(@consumer[:key], @consumer[:secret], {
                     :site => Kounta::SITE_URI,
                     :authorize_url => Kounta::AUTHORIZATION_URI,
