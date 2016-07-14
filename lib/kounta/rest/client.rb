@@ -44,6 +44,10 @@ module Kounta
         @company ||= Kounta::Company.new(self, hash)
       end
 
+      def site
+        @site ||= company.site(Kounta.site_id)
+      end
+
             def path_from_hash(url_hash)
         # TODO: there's probably a more correct way of doing this encoding
                 url_hash.map{ |key, value| value ? "#{key}/#{value.to_s.gsub("-", "%2D")}" : "#{key}" }.join('/')

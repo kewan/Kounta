@@ -77,6 +77,14 @@ module Kounta
 		@client_refresh_token
 	end
 
+	def self.site_id= (value)
+		@site_id = value
+	end
+
+	def self.site_id
+		@site_id
+	end
+
 	def self.enable_logging= (value)
 		@enable_logging = value
 	end
