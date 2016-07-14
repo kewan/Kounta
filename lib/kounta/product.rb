@@ -14,6 +14,8 @@ module Kounta
 		property :taxes
 		property :sites
 		property :number
+		property :is_modifier
+		property :modifiers
 
 		has_many :categories, Kounta::Category, {:company_id => :company_id}, Proc.new { |klass| {companies: klass.company_id, products: klass.id, categories: nil} }
 		coerce_key :taxes, Kounta::Tax
